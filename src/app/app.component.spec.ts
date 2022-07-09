@@ -5,9 +5,9 @@ import { OrbitCountsComponent } from './orbit-counts/orbit-counts.component';
 import { OrbitListComponent } from './orbit-list/orbit-list.component';
 
 describe('AppComponent', () => {
-  let component: AppComponent;
-  let fixture: ComponentFixture<AppComponent>;
-  let element: DebugElement;
+  // let component: AppComponent;
+  // let fixture: ComponentFixture<AppComponent>;
+  // let element: DebugElement;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -19,24 +19,34 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
 
-  beforeEach(() => {
-	fixture = TestBed.createComponent(AppComponent);
-	component = fixture.debugElement.componentInstance;
-	element = fixture.debugElement;
+//   beforeEach(() => {
+// 	fixture = TestBed.createComponent(AppComponent);
+// 	component = fixture.debugElement.componentInstance;
+// 	element = fixture.debugElement;
 
-	fixture.detectChanges();
+// 	fixture.detectChanges();
+//  });
+
+  it('should create the app', () => {
+	  const fixture = TestBed.createComponent(AppComponent);
+	  const app = fixture.debugElement.componentInstance;
+	  expect(app).toBeTruthy();
  });
 
- it('should create', () => {
-	expect(component).toBeTruthy();
+  it(`should have the title of 'orbit-report'`, () => {
+	  const fixture = TestBed.createComponent(AppComponent);
+	  fixture.detectChanges();
+	  const app = fixture.debugElement.componentInstance;
+	  expect(app.title).toEqual(`orbit-report`);
  });
 
- it('should contain the list component', async(() => {
-	const fixture = TestBed.createComponent(AppComponent);
-	fixture.detectChanges();
-	const compiled = fixture.debugElement.nativeElement;
-	expect(compiled.querySelector('app-orbit-list')).not.toBe(null);
- }));
-
-
+  it('should render title in a h1 tag', () => {
+	  const fixture = TestBed.createComponent(AppComponent);
+	  fixture.detectChanges();
+	  const compiled = fixture.debugElement.nativeElement;
+	  expect(compiled.querySelector('h1').textContent).toContain('Welcome to orbit-report app!');
+  });
 });
+
+
+
