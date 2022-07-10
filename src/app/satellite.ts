@@ -19,12 +19,13 @@ export class Satellite {
 
 
 // TODO 3a: fix isSpaceDebris check
-
-	isSpaceDebris(): boolean {
-		return true;
-	}
+isSpaceDebris(): boolean {
+	return this.type === 'Space Debris';
+}
 }
 
+
+	
 
 
 
